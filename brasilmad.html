@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrasilMad - Madeiras de Qualidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-padding-top: 80px; /* Adjust for fixed header height */
+        }
+        /* Cores extraídas do seu logo */
+        :root {
+            --cor-principal: #004d40; /* Verde escuro do logo */
+            --cor-principal-hover: #00382e;
+            --cor-secundaria: #f5b741; /* Amarelo/Dourado do logo */
+        }
+        .hero-section {
+            /* Imagem principal do site - Substitua a URL abaixo */
+            background-image: url('https://placehold.co/1920x1080/004d40/ffffff?text=Sua+Imagem+Principal');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--cor-principal);
+            border-radius: 2px;
+        }
+        /* Estilos para usar as cores da marca */
+        .text-principal { color: var(--cor-principal); }
+        .bg-principal { background-color: var(--cor-principal); }
+        .hover\:bg-principal-hover:hover { background-color: var(--cor-principal-hover); }
+        .focus\:ring-principal:focus { --tw-ring-color: var(--cor-principal); }
+        .text-secundaria { color: var(--cor-secundaria); }
+        .border-secundaria { border-color: var(--cor-secundaria); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full z-10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Seu Logo/Nome -->
+            <a href="#" class="text-2xl font-bold text-gray-800">BRASIL<span class="text-secundaria">MAD</span></a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#sobre" class="text-gray-600 hover:text-principal transition duration-300">Sobre Nós</a>
+                <a href="#atuacao" class="text-gray-600 hover:text-principal transition duration-300">Atuação</a>
+                <a href="#produtos" class="text-gray-600 hover:text-principal transition duration-300">Produtos</a>
+                <a href="#projetos" class="text-gray-600 hover:text-principal transition duration-300">Projetos</a>
+                
+                <!-- Seletor de Idiomas (Desktop) -->
+                <div class="relative" id="language-switcher">
+                    <button id="language-switcher-button" class="flex items-center text-gray-600 hover:text-principal transition duration-300">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span>Idioma</span>
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div id="language-dropdown" class="hidden absolute right-0 mt-2 py-2 w-40 bg-white rounded-md shadow-xl z-20">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-principal hover:text-white">Português</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-principal hover:text-white">English</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-principal hover:text-white">Français</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-principal hover:text-white">Español</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-principal hover:text-white">العربية</a>
+                    </div>
+                </div>
+
+                <a href="#contato" class="bg-principal text-white py-2 px-4 rounded-full hover:bg-principal-hover transition duration-300">Fale Conosco</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#sobre" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Sobre Nós</a>
+            <a href="#atuacao" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Atuação</a>
+            <a href="#produtos" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Produtos</a>
+            <a href="#projetos" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Projetos</a>
+            <a href="#contato" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Fale Conosco</a>
+            <hr class="my-2">
+            <div class="px-4 py-2 text-sm text-gray-500">Idiomas</div>
+            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-principal hover:text-white">Português</a>
+            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-principal hover:text-white">English</a>
+            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-principal hover:text-white">Français</a>
+            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-principal hover:text-white">Español</a>
+            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-principal hover:text-white">العربية</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-white pt-16">
+        <div class="bg-black bg-opacity-50 p-10 rounded-lg text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">A Excelência da Madeira para seu Projeto</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Soluções completas em madeiras de pinus para exportação.</p>
+            <a href="#contato" class="bg-principal text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-principal-hover transition duration-300">Solicite um Orçamento</a>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Sobre Nós -->
+        <section id="sobre" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Sobre Nós</h2>
+                <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Conheça nossa história de sucesso no mercado de exportação de madeira.</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/004d40/ffffff?text=Foto+da+Empresa" alt="Madeira de qualidade" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4 text-principal">Tradição e Experiência em Exportação</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        A Brasilmad S/A é uma empresa brasileira atuando no mercado de exportação de madeira desde 1997. Ao longo do tempo, especializou-se em madeira de pinus, dimensionada nas medidas específicas e finais solicitadas por seus clientes. Nossa madeira é utilizada em todos os continentes para a fabricação de móveis, embalagens especiais e construção civil.
+                    </p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Presidida por Nivaldo Dzyekanski, empresário experiente no comércio de madeiras para o exterior, a Brasilmad vem sendo agraciada em diversas premiações, como o prêmio Mérito Exportação desde 2003 e, mais recentemente, o Prêmio Proex Exportação, conferido pelo Banco do Brasil.
+                    </p>
+                     <p class="text-gray-600 leading-relaxed italic border-l-4 border-principal pl-4">
+                        "Além de vender madeira, a Brasilmad se preocupa em oferecer solução e segurança para seus clientes. O cumprimento dos prazos de entrega e a qualidade correta são os nossos compromissos."
+                        <span class="block text-right font-semibold not-italic mt-2">- Nivaldo Dzyekanski</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atuação -->
+        <section id="atuacao" class="py-16 bg-gray-100 -mx-6 px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Atuação Global</h2>
+                <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Exportamos para todos os continentes, com forte presença em mercados estratégicos.</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="md:w-2/3">
+                    <img src="https://placehold.co/800x450/eeeeee/333333?text=Mapa+Mundi+de+Atua%C3%A7%C3%A3o" alt="Mapa de atuação da Brasilmad" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="md:w-1/3 text-center md:text-left">
+                    <h3 class="text-2xl font-semibold mb-4 text-principal">Principais Mercados</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        A Brasilmad atualmente exporta para a Europa, Estados Unidos, México, Emirados Árabes, Arábia Saudita e Marrocos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produtos -->
+        <section id="produtos" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Nossos Produtos</h2>
+                <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Madeira de pinus dimensionada para as mais diversas finalidades.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://placehold.co/600x400/f5b741/004d40?text=Móveis" alt="Madeira para Móveis" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Fabricação de Móveis</h3>
+                        <p class="text-gray-600">Madeira de alta qualidade, cortada nas dimensões exatas para a indústria moveleira.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://placehold.co/600x400/f5b741/004d40?text=Embalagens" alt="Madeira para Embalagens" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Embalagens Especiais</h3>
+                        <p class="text-gray-600">Soluções robustas e sob medida para embalagens que exigem resistência e segurança.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://placehold.co/600x400/f5b741/004d40?text=Construção" alt="Madeira para Construção Civil" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Construção Civil</h3>
+                        <p class="text-gray-600">Madeira dimensionada para uso em estruturas, acabamentos e outras aplicações na construção.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos -->
+        <section id="projetos" class="py-16 bg-gray-100 -mx-6 px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Projetos Realizados</h2>
+                <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Inspire-se com alguns trabalhos que nos enchem de orgulho.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                 <div class="group relative">
+                    <img src="https://placehold.co/400x400/004d40/ffffff?text=Projeto+1" class="w-full h-full object-cover rounded-lg" alt="Projeto 1">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg">
+                        <p class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300">Nome do Projeto 1</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <img src="https://placehold.co/400x400/004d40/ffffff?text=Projeto+2" class="w-full h-full object-cover rounded-lg" alt="Projeto 2">
+                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg">
+                        <p class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300">Nome do Projeto 2</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <img src="https://placehold.co/400x400/004d40/ffffff?text=Projeto+3" class="w-full h-full object-cover rounded-lg" alt="Projeto 3">
+                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg">
+                        <p class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300">Nome do Projeto 3</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <img src="https://placehold.co/400x400/004d40/ffffff?text=Projeto+4" class="w-full h-full object-cover rounded-lg" alt="Projeto 4">
+                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg">
+                        <p class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300">Nome do Projeto 4</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold section-title inline-block">Fale Conosco</h2>
+                <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Estamos prontos para atender você. Entre em contato com nossos departamentos ou envie uma mensagem.</p>
+            </div>
+
+            <!-- Contatos por Departamento -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-8 text-center text-principal">Contatos por Departamento</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Comercial -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-bold mb-4 border-b-2 border-secundaria pb-2">Comercial</h4>
+                        <div class="space-y-4 text-gray-600">
+                            <p><strong>Nelson:</strong><br><a href="mailto:nelson@brasilmad.com.br" class="hover:text-principal text-sm">nelson@brasilmad.com.br</a><br><span class="text-sm">+55 41 3283 8253</span></p>
+                            <p><strong>Betania:</strong><br><a href="mailto:betania@brasilmad.com.br" class="hover:text-principal text-sm">betania@brasilmad.com.br</a><br><span class="text-sm">+55 41 3283 8254</span></p>
+                            <p><strong>Alessandra:</strong><br><a href="mailto:alessandra@brasilmad.com.br" class="hover:text-principal text-sm">alessandra@brasilmad.com.br</a><br><span class="text-sm">+55 41 3283 8255</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Administrativo & Financeiro -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-bold mb-4 border-b-2 border-secundaria pb-2">Administrativo</h4>
+                         <div class="space-y-4 text-gray-600 mb-6">
+                            <p><strong>Betania:</strong><br><a href="mailto:betania@brasilmad.com.br" class="hover:text-principal text-sm">betania@brasilmad.com.br</a><br><span class="text-sm">+55 41 3283 8254</span></p>
+                            <p><strong>Alessandra:</strong><br><a href="mailto:alessandra@brasilmad.com.br" class="hover:text-principal text-sm">alessandra@brasilmad.com.br</a><br><span class="text-sm">+55 41 3283 8255</span></p>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 border-b-2 border-secundaria pb-2">Financeiro</h4>
+                         <div class="space-y-4 text-gray-600">
+                            <p><strong>Marcelo:</strong><br><a href="mailto:marcelo@brasilmad.com.br" class="hover:text-principal text-sm">marcelo@brasilmad.com.br</a><br><span class="text-sm">+55 41 3283 8257</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Documental & Logística -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                         <h4 class="text-xl font-bold mb-4 border-b-2 border-secundaria pb-2">Documental</h4>
+                         <div class="space-y-4 text-gray-600 mb-6">
+                            <p><strong>Giovana:</strong><br><a href="mailto:giovana@brasilmad.com.br" class="hover:text-principal text-sm">giovana@brasilmad.com.br</a><br><span class="text-sm">+55 41 3283 8251</span></p>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 border-b-2 border-secundaria pb-2">Logística</h4>
+                         <div class="space-y-4 text-gray-600">
+                            <p><strong>Antonio:</strong><br><a href="mailto:antonio@brasilmad.com.br" class="hover:text-principal text-sm">antonio@brasilmad.com.br</a><br><span class="text-sm">+55 41 3283 8252</span></p>
+                            <p><strong>Fernanda:</strong><br><a href="mailto:fernanda@brasilmad.com.br" class="hover:text-principal text-sm">fernanda@brasilmad.com.br</a><br><span class="text-sm">+55 41 3283 8252</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Endereços -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-8 text-center text-principal">Nossos Endereços</h3>
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-10 text-center">
+                     <div class="md:w-1/2">
+                        <h4 class="text-xl font-bold mb-2">Brasilmad S/A</h4>
+                        <p class="text-gray-600">Rua Dionizio Markovicz, nº 161 - Fazendinha<br>Curitiba - PR - Brasil - 81240-160</p>
+                     </div>
+                     <div class="md:w-1/2">
+                        <h4 class="text-xl font-bold mb-2">Imaribo S/A</h4>
+                         <p class="text-gray-600">Rua Carlos Pisani, s/n<br>Monte Carlo - SC - Brasil - 89618-000</p>
+                     </div>
+                </div>
+            </div>
+
+            <!-- Formulário -->
+            <div class="bg-gray-100 -mx-6 px-6 py-16">
+                 <div class="max-w-xl mx-auto">
+                     <h3 class="text-2xl font-semibold mb-8 text-center text-principal">Ou Envie uma Mensagem Geral</h3>
+                    <form action="#" method="POST" class="space-y-4">
+                        <div>
+                            <label for="name" class="sr-only">Nome</label>
+                            <input type="text" name="name" id="name" placeholder="Seu Nome" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-principal">
+                        </div>
+                        <div>
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Seu E-mail" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-principal">
+                        </div>
+                         <div>
+                            <label for="phone" class="sr-only">Telefone</label>
+                            <input type="tel" name="phone" id="phone" placeholder="Seu Telefone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-principal">
+                        </div>
+                        <div>
+                            <label for="message" class="sr-only">Mensagem</label>
+                            <textarea name="message" id="message" rows="4" placeholder="Sua Mensagem" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-principal"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-principal text-white py-3 px-8 rounded-full font-semibold hover:bg-principal-hover transition duration-300 w-full">Enviar Mensagem</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                 <div class="text-center md:text-left mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold">BRASIL<span class="text-secundaria">MAD</span></a>
+                    <p class="text-sm text-gray-400 mt-2">© 2024 BrasilMad. Todos os direitos reservados.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/brasilmad.com.br/" target="_blank" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-whatsapp fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.length > 1) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Language switcher for desktop
+        const languageSwitcherButton = document.getElementById('language-switcher-button');
+        const languageDropdown = document.getElementById('language-dropdown');
+        if (languageSwitcherButton) {
+            languageSwitcherButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                languageDropdown.classList.toggle('hidden');
+            });
+        }
+
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            const languageSwitcher = document.getElementById('language-switcher');
+            if (languageSwitcher && !languageSwitcher.contains(event.target) && !languageDropdown.classList.contains('hidden')) {
+                languageDropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
+
